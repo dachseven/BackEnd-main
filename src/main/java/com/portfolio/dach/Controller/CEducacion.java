@@ -10,7 +10,6 @@ import com.portfolio.dach.Entity.Educacion;
 import com.portfolio.dach.Security.Controller.Mensaje;
 import com.portfolio.dach.Service.Seducacion;
 import java.util.List;
-import jdk.internal.net.http.common.Log;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
