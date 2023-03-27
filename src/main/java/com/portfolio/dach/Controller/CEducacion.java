@@ -10,6 +10,7 @@ import com.portfolio.dach.Entity.Educacion;
 import com.portfolio.dach.Security.Controller.Mensaje;
 import com.portfolio.dach.Service.Seducacion;
 import java.util.List;
+import jdk.internal.net.http.common.Log;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,7 @@ public class CEducacion {
     public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
+        
     }
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
