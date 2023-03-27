@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
     @Autowired
     ImpPersonaService personaService;
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @GetMapping("/lista")
     public ResponseEntity<List<Persona>> list(){
         List<Persona> list = personaService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Persona> getById(@PathVariable("id")int id){
         if(!personaService.existsById(id)){
@@ -66,7 +66,7 @@ public class PersonaController {
         return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
                 
     }*/
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoPersona dtopersona){
         if(!personaService.existsById(id)){

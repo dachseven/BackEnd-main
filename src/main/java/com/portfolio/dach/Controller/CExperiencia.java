@@ -30,13 +30,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list(){
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
@@ -44,7 +44,7 @@ public class CExperiencia {
         Experiencia experiencia = sExperiencia.getOne(id).get();
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sExperiencia.existsById(id)) {
@@ -54,7 +54,7 @@ public class CExperiencia {
         return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
 
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){      
         if(StringUtils.isBlank(dtoexp.getNombreE()))
@@ -67,7 +67,7 @@ public class CExperiencia {
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp){
         //Validamos si existe el ID

@@ -30,12 +30,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class CProyecto {
     @Autowired
     SProyecto sProyecto;
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @GetMapping("/lista")
     public ResponseEntity<List<Proyecto>> list(){
         List<Proyecto> list = sProyecto.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id")int id){
         if(!sProyecto.existsById(id)){
@@ -45,7 +46,7 @@ public class CProyecto {
         Proyecto proyecto = sProyecto.getOne(id).get();
         return new ResponseEntity(proyecto, HttpStatus.OK);
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!sProyecto.existsById(id)){
@@ -54,7 +55,7 @@ public class CProyecto {
         sProyecto.delete(id);
         return new ResponseEntity(new Mensaje("proyecto eliminado"), HttpStatus.OK);
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyecto){
         if(StringUtils.isBlank(dtoproyecto.getNombreE())){
@@ -71,7 +72,7 @@ public class CProyecto {
         return new ResponseEntity(new Mensaje("Proyecto creado"), HttpStatus.OK);
                 
     }
-    
+    @CrossOrigin(origins = "https://frontenddach.web.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyecto dtoproyecto){
         if(!sProyecto.existsById(id)){
