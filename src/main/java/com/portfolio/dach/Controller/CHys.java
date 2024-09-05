@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-@CrossOrigin(origins = "https://frontenddach.web.app")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
 @RestController
 
 @RequestMapping("/skill")
@@ -26,13 +26,13 @@ public class CHys {
 
     @Autowired
     Shys shys;
-    @CrossOrigin(origins = "https://frontenddach.web.app")
+   @CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @GetMapping("/lista")
     public ResponseEntity<List<hys>> list() {
         List<hys> list = shys.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-@CrossOrigin(origins = "https://frontenddach.web.app")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<hys> getById(@PathVariable("id") int id) {
         if (!shys.existsById(id)) {
@@ -41,7 +41,7 @@ public class CHys {
         hys hYs = shys.getOne(id).get();
         return new ResponseEntity(hYs, HttpStatus.OK);
     }
-@CrossOrigin(origins = "https://frontenddach.web.app")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!shys.existsById(id)) {
@@ -50,7 +50,7 @@ public class CHys {
         shys.delete(id);
         return new ResponseEntity(new Mensaje("Skill eliminado"), HttpStatus.OK);
     }
-@CrossOrigin(origins = "https://frontenddach.web.app")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoHys dtohys) {
         if (StringUtils.isBlank(dtohys.getNombre())) {
@@ -65,7 +65,7 @@ public class CHys {
 
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
     }
-@CrossOrigin(origins = "https://frontenddach.web.app")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoHys dtohys) {
         //Validamos si existe el ID
