@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
 @RestController
 @RequestMapping("/educacion")
 
@@ -30,14 +30,14 @@ public class CEducacion {
     @Autowired
     Seducacion sEducacion;
 
-@CrossOrigin(origins = "front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list() {
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id) {
         if (!sEducacion.existsById(id)) {
@@ -48,7 +48,7 @@ public class CEducacion {
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
 
-@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sEducacion.existsById(id)) {
@@ -58,7 +58,7 @@ public class CEducacion {
         return new ResponseEntity(new Mensaje("Educacion eliminada"), HttpStatus.OK);
     }
 
-@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion) {
         if (StringUtils.isBlank(dtoeducacion.getNombreE())) {
@@ -76,7 +76,7 @@ public class CEducacion {
 
     }
 
-@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion) {
         if (!sEducacion.existsById(id)) {
