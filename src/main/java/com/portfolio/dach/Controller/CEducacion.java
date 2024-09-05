@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "front-end-main-sigma.vercel.app/")
 @RestController
 @RequestMapping("/educacion")
 
@@ -30,7 +30,7 @@ public class CEducacion {
     @Autowired
     Seducacion sEducacion;
 
-@CrossOrigin(origins = "https://front-end-main-sigma.vercel.app/")
+@CrossOrigin(origins = "front-end-main-sigma.vercel.app/")
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list() {
         List<Educacion> list = sEducacion.list();
